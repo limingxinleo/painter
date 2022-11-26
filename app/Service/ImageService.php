@@ -26,6 +26,48 @@ class ImageService extends Service
     {
         $this->fire();
         $this->gold();
+        $this->yezi();
+        $this->water();
+        $this->tu();
+    }
+
+    public function tu()
+    {
+        $path = BASE_PATH . '/storage/assets/tu_90.png';
+        $image = $this->manager->canvas(90, 90);
+        $image->circle(90, 45, 45, fn(AbstractShape $draw) => $draw->background('#FFFFFF'));
+
+        $fire = $this->manager->make(BASE_PATH . '/storage/assets/tu.png');
+        $fire->widen(95);
+        $image->insert($fire, 'center');
+
+        $image->save($path);
+    }
+
+    public function water()
+    {
+        $path = BASE_PATH . '/storage/assets/water_90.png';
+        $image = $this->manager->canvas(90, 90);
+        $image->circle(90, 45, 45, fn(AbstractShape $draw) => $draw->background('#FFFFFF'));
+
+        $fire = $this->manager->make(BASE_PATH . '/storage/assets/water.png');
+        $fire->heighten(85);
+        $image->insert($fire, 'center');
+
+        $image->save($path);
+    }
+
+    public function yezi()
+    {
+        $path = BASE_PATH . '/storage/assets/yezi_90.png';
+        $image = $this->manager->canvas(90, 90);
+        $image->circle(90, 45, 45, fn(AbstractShape $draw) => $draw->background('#FFFFFF'));
+
+        $fire = $this->manager->make(BASE_PATH . '/storage/assets/yezi.png');
+        $fire->heighten(100);
+        $image->insert($fire, 'center');
+
+        $image->save($path);
     }
 
     public function gold()
