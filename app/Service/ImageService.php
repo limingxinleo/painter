@@ -25,6 +25,20 @@ class ImageService extends Service
     public function graphical()
     {
         $this->fire();
+        $this->gold();
+    }
+
+    public function gold()
+    {
+        $path = BASE_PATH . '/storage/assets/gold_90.png';
+        $image = $this->manager->canvas(90, 90);
+        $image->circle(90, 45, 45, fn(AbstractShape $draw) => $draw->background('#FFFFFF'));
+
+        $fire = $this->manager->make(BASE_PATH . '/storage/assets/gold.png');
+        $fire->heighten(90);
+        $image->insert($fire, 'center');
+
+        $image->save($path);
     }
 
     public function fire()
