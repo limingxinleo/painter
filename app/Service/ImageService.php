@@ -24,15 +24,21 @@ class ImageService extends Service
 
     public function graphical()
     {
-        $path = BASE_PATH . '/runtime/red.png';
+        $this->fire();
+    }
+
+    public function fire()
+    {
+        $path = BASE_PATH . '/storage/assets/fire_90.png';
 
         $image = $this->manager->canvas(90, 90);
 
-        $image->circle(90, 45, 45, fn(AbstractShape $draw) => $draw->background('#FF0000'));
-        $fire = $this->manager->make(BASE_PATH . '/runtime/fire.png');
-        $fire->heighten(70);
+        $image->circle(90, 45, 45, fn(AbstractShape $draw) => $draw->background('#FFFFFF'));
+        $fire = $this->manager->make(BASE_PATH . '/storage/assets/fire.png');
+        $fire->heighten(90);
         $image->insert($fire, 'center');
 
         $image->save($path);
     }
+
 }
